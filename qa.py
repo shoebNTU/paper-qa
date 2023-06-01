@@ -16,7 +16,7 @@ temp = st.sidebar.file_uploader(label='', type=['pdf'])
 st.title('Ask your PDF')
 
 if temp:
-    text = st.text_input('Please enter your query')
+    text = st.text_input('Please input your query and hit enter')
     st.write('Your query is:', text)
 
     file_contents = temp.getvalue()
@@ -26,6 +26,9 @@ if temp:
         f.write(file_contents)   
 
     if st.button('Get response'):
+        model_name = 'MBZUAI/LaMini-Flan-T5-783M'
+        st.write(f'Model - {model_name}')
+        utils.load_model(model_name)
         utils.get_docs(file_loc)
         answer = utils.get_response(text)
         st.write(answer.formatted_answer)

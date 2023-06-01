@@ -5,6 +5,7 @@
 - Open Colab notebook
 - Run all cells
 - Click on the link generated in the last cell to access the streamlit app. You will be prompted to enter `ip-address` (see picture below on where to find it)
+
 ![image](https://github.com/shoebNTU/paper-qa/assets/27325112/0a5bbe2f-6fe3-4870-8065-55ede13e57ae)
 - Upload a pdf file of your choice and ask questions you may have
 - Note that the current model in use is not very accurate. More work is needed to find a better model that gives better results, without crashing colab notebook.

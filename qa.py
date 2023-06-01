@@ -8,7 +8,7 @@ with open('favicon.png', 'rb') as f:
 st.set_page_config(page_title='Ask your pdf',
                    page_icon=favicon, 
                    initial_sidebar_state='expanded',layout='wide')
-st.sidebar.image("./siemens_logo.png", width = 150)
+# st.sidebar.image("./siemens_logo.png", width = 150)
 
 st.sidebar.title("Please upload pdf file")
 temp = st.sidebar.file_uploader(label='', type=['pdf'])

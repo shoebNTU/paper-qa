@@ -18,7 +18,6 @@ def get_docs(file_loc):
         docs.add(d,chunk_chars = 2000)
     return docs
 
-@st.cache_data
-def get_response(_docs,query):     
-    answer = _docs.query(query)
+def get_response(docs,query):     
+    answer = docs.query(query)
     return answer

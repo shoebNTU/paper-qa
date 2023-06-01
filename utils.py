@@ -10,7 +10,7 @@ embeddings = HuggingFaceEmbeddings()
 model = pipeline('text2text-generation', model = model_name)
 local_llm = HuggingFacePipeline(pipeline=model, model_kwargs={"temperature":0.2})
 
-@st.cache_data
+@st.cache
 def get_docs(file_loc):
     docs = Docs(llm=local_llm, embeddings=embeddings)
     my_docs = [file_loc] # you can add other document paths based on the documents you are querying
@@ -18,6 +18,7 @@ def get_docs(file_loc):
         docs.add(d,chunk_chars = 2000)
     return docs
 
+@st.cache
 def get_response(docs,query):     
     answer = docs.query(query)
     return answer

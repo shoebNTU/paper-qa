@@ -9,16 +9,14 @@ model_name = "MBZUAI/LaMini-Neo-125M" #using an open-source model.
 embeddings = HuggingFaceEmbeddings()
 model = pipeline('text2text-generation', model = model_name)
 local_llm = HuggingFacePipeline(pipeline=model, model_kwargs={"temperature":0.2})
+docs = Docs(llm=local_llm, embeddings=embeddings)
 
 @st.cache
-def get_docs(file_loc):
-    docs = Docs(llm=local_llm, embeddings=embeddings)
+def get_docs(file_loc):    
     my_docs = [file_loc] # you can add other document paths based on the documents you are querying
     for d in set(my_docs):
         docs.add(d,chunk_chars = 2000)
-    return docs
 
-@st.cache
-def get_response(docs,query):     
+def get_response(query):     
     answer = docs.query(query)
     return answer

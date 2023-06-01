@@ -26,8 +26,8 @@ if temp:
         f.write(file_contents)   
 
     if st.button('Get response'):
-        docs = utils.get_docs(file_loc)
-        answer = utils.get_response(docs,text)
+        utils.get_docs(file_loc)
+        answer = utils.get_response(text)
         st.write(answer.formatted_answer)
     
         

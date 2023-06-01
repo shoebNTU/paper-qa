@@ -12,7 +12,7 @@ docs = Docs(llm=local_llm, embeddings=embeddings)
 
 def get_response(file_loc,query):
     my_docs = [file_loc] # you can add other document paths based on the documents you are querying
-    for d in my_docs:
+    for d in set(my_docs):
         docs.add(d,chunk_chars = 2000)  
     answer = docs.query(query)
     return answer

@@ -1,6 +1,5 @@
 import streamlit as st
 import io
-from tempfile import NamedTemporaryFile
 import utils
 
 with open('favicon.png', 'rb') as f:
@@ -20,10 +19,11 @@ if temp:
     text = st.text_input('Please enter your query')
     st.write('Your query is:', text)
 
-    with NamedTemporaryFile(delete=False) as tmp_file:
-        tmp_file.write(temp.read())
-        # st.write("File saved to:", tmp_file.name)
-    file_loc = tmp_file.name
+    file_contents = temp.getvalue()
+    file_loc = 'sample.pdf' #tmp_file.name
+    # Write the contents of the file to a specific location
+    with open(file_loc, 'wb') as f:
+        f.write(file_contents)   
 
     if st.button('Get response'):
         answer = utils.get_response(file_loc,text)

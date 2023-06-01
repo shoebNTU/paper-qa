@@ -3,7 +3,7 @@ from transformers import pipeline
 from langchain.llms import HuggingFacePipeline
 from paperqa import Docs
 
-model_name = "LaMini-Flan-T5-77M" #using an open-source model. 
+model_name = "MBZUAI/LaMini-Neo-125M" #using an open-source model. 
 # You can choose a model of your choice available at https://huggingface.co/models
 embeddings = HuggingFaceEmbeddings()
 model = pipeline('text2text-generation', model = model_name)

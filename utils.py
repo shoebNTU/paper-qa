@@ -19,6 +19,6 @@ def get_docs(file_loc):
     return docs
 
 @st.cache_data
-def get_response(docs,query):     
-    answer = docs.query(query)
+def get_response(_docs,query):     
+    answer = _docs.query(query)
     return answer
